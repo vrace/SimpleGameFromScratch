@@ -23,6 +23,10 @@ typedef struct tagVertex
     float u, v;
 } Vertex;
 
+// Our screen resolution
+int ScreenWidth = 320;
+int ScreenHeight = 480;
+
 @interface ViewController () {
 }
 
@@ -49,6 +53,10 @@ typedef struct tagVertex
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    
+    // Save our screen resolution
+    ScreenWidth = (int)view.frame.size.width;
+    ScreenHeight = (int)view.frame.size.height;
     
     [self setupGL];
 }
@@ -108,6 +116,13 @@ typedef struct tagVertex
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     self.texture = [self textureFromImage:@"Spaceship"];
+    
+    // Setup projection matrix so that we don't have to use real screen resolution
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();  // Set to identity first. IMPORTANT!
+    glOrthof(ScreenWidth * -0.5f, ScreenWidth * 0.5f,   // left - right (x axis)
+             ScreenHeight * -0.5f, ScreenHeight * 0.5f, // bottom - up (y axis)
+             -1.0f, 1.0f);  // near - far (z axis)
 }
 
 - (void)tearDownGL
@@ -132,14 +147,14 @@ typedef struct tagVertex
         // x        y       u       v
         
         // first triangle
-        { -0.5f,    0.5f,   0.0f,   0.0f },     // top left of quad
-        { -0.5f,    -0.5f,  0.0f,   1.0f },     // bottom left of quad
-        { 0.5f,     -0.5f,  1.0f,   1.0f },     // bottom right of quad
+        { -50.0f,   50.0f,   0.0f,   0.0f },     // top left of quad
+        { -50.0f,   -50.0f,  0.0f,   1.0f },     // bottom left of quad
+        { 50.0f,    -50.0f,  1.0f,   1.0f },     // bottom right of quad
         
         // second triangle
-        { -0.5f,    0.5f,   0.0f,   0.0f },     // top left of quad
-        { 0.5f,     -0.5f,  1.0f,   1.0f },     // bottom right of quad
-        { 0.5f,     0.5f,   1.0f,   0.0f },     // top right of quad
+        { -50.0f,   50.0f,   0.0f,   0.0f },     // top left of quad
+        { 50.0f,    -50.0f,  1.0f,   1.0f },     // bottom right of quad
+        { 50.0f,    50.0f,   1.0f,   0.0f },     // top right of quad
     };
     
     // Enable texture and bind
