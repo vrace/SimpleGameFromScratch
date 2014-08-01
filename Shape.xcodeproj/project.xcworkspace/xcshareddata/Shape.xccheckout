@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>B2E0185B-6DFA-475E-8ACD-F16E0756455F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Shape</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E42DBEBD-B669-4F84-9C0A-1090A175F109</key>
+		<string>https://github.com/vrace/SimpleGameFromScratch.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Shape.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E42DBEBD-B669-4F84-9C0A-1090A175F109</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/vrace/SimpleGameFromScratch.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E42DBEBD-B669-4F84-9C0A-1090A175F109</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E42DBEBD-B669-4F84-9C0A-1090A175F109</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SimpleGameFromScratch</string>
+		</dict>
+	</array>
+</dict>
+</plist>
