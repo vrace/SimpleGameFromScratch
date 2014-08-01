@@ -144,17 +144,17 @@ int ScreenHeight = 480;
     // Our sprite (a quad with a picture)
     Vertex v[] =
     {
-        // x        y       u       v
+        // x        y           u       v
         
         // first triangle
-        { -50.0f,   50.0f,   0.0f,   0.0f },     // top left of quad
-        { -50.0f,   -50.0f,  0.0f,   1.0f },     // bottom left of quad
-        { 50.0f,    -50.0f,  1.0f,   1.0f },     // bottom right of quad
+        { -50.0f,   50.0f,      0.0f,   0.0f },     // top left of quad
+        { -50.0f,   -50.0f,     0.0f,   1.0f },     // bottom left of quad
+        { 50.0f,    -50.0f,     1.0f,   1.0f },     // bottom right of quad
         
         // second triangle
-        { -50.0f,   50.0f,   0.0f,   0.0f },     // top left of quad
-        { 50.0f,    -50.0f,  1.0f,   1.0f },     // bottom right of quad
-        { 50.0f,    50.0f,   1.0f,   0.0f },     // top right of quad
+        { -50.0f,   50.0f,      0.0f,   0.0f },     // top left of quad
+        { 50.0f,    -50.0f,     1.0f,   1.0f },     // bottom right of quad
+        { 50.0f,    50.0f,      1.0f,   0.0f },     // top right of quad
     };
     
     // Enable texture and bind
