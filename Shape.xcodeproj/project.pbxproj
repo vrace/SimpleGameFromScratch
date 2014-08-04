@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11842586198F604E00C8861D /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 11842585198F604E00C8861D /* Sprite.m */; };
 		1187A74A19824F83007F36C8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1187A74919824F83007F36C8 /* Foundation.framework */; };
 		1187A74C19824F83007F36C8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1187A74B19824F83007F36C8 /* CoreGraphics.framework */; };
 		1187A74E19824F83007F36C8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1187A74D19824F83007F36C8 /* UIKit.framework */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11842584198F604E00C8861D /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		11842585198F604E00C8861D /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 		1187A74619824F83007F36C8 /* Shape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1187A74919824F83007F36C8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1187A74B19824F83007F36C8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,6 +137,8 @@
 				1187A76419824F83007F36C8 /* Shader.vsh */,
 				1187A76619824F83007F36C8 /* ViewController.h */,
 				1187A76719824F83007F36C8 /* ViewController.m */,
+				11842584198F604E00C8861D /* Sprite.h */,
+				11842585198F604E00C8861D /* Sprite.m */,
 				1187A76919824F83007F36C8 /* Images.xcassets */,
 				1187A75419824F83007F36C8 /* Supporting Files */,
 			);
@@ -270,6 +275,7 @@
 			files = (
 				1187A76819824F83007F36C8 /* ViewController.m in Sources */,
 				1187A75E19824F83007F36C8 /* AppDelegate.m in Sources */,
+				11842586198F604E00C8861D /* Sprite.m in Sources */,
 				1187A75A19824F83007F36C8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

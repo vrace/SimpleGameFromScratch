@@ -7,21 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "Sprite.h"
 
 @import GLKit;
-
-// This is our vertex format
-// It keeps us away from raw float array
-typedef struct tagVertex
-{
-    // coordinate of our vertex
-    float x, y;
-    
-    // coordinate of our texture
-    // normally we use 'uv' to indicate a texture coordinate
-    // uv has a range of (0,0) to (1,1)
-    float u, v;
-} Vertex;
 
 // Our screen resolution
 int ScreenWidth = 320;
@@ -31,7 +19,7 @@ int ScreenHeight = 480;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
-@property GLKTextureInfo *texture;  // our texture
+@property Sprite *sprite;  // our sprite
 
 - (void)setupGL;
 - (void)tearDownGL;
@@ -115,9 +103,12 @@ int ScreenHeight = 480;
     // Set blend function to best representing transparent picture
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
-    self.texture = [self textureFromImage:@"Spaceship"];
+    // Setup our sprite
+    GLKTextureInfo *texture = [self textureFromImage:@"Spaceship"];
+    self.sprite = [Sprite spriteWithTexture:texture];
+    self.sprite.size = GLKVector2Make(50, 50);
     
-    // Setup projection matrix so that we don't have to use real screen resolution
+    // Setup projection matrix so that we could use real screen resolution
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();  // Set to identity first. IMPORTANT!
     glOrthof(ScreenWidth * -0.5f, ScreenWidth * 0.5f,   // left - right (x axis)
@@ -141,42 +132,7 @@ int ScreenHeight = 480;
     glClearColor(0.4f, 0.6f, 0.9f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    // Our sprite (a quad with a picture)
-    Vertex v[] =
-    {
-        // x        y           u       v
-        
-        // first triangle
-        { -50.0f,   50.0f,      0.0f,   0.0f },     // top left of quad
-        { -50.0f,   -50.0f,     0.0f,   1.0f },     // bottom left of quad
-        { 50.0f,    -50.0f,     1.0f,   1.0f },     // bottom right of quad
-        
-        // second triangle
-        { -50.0f,   50.0f,      0.0f,   0.0f },     // top left of quad
-        { 50.0f,    -50.0f,     1.0f,   1.0f },     // bottom right of quad
-        { 50.0f,    50.0f,      1.0f,   0.0f },     // top right of quad
-    };
-    
-    // Enable texture and bind
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, self.texture.name);
-    
-    // We have vertex and texture coord in our data
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    
-    // Send the data
-    glVertexPointer(2, GL_FLOAT, sizeof(Vertex), v);
-    glTexCoordPointer(2, GL_FLOAT, sizeof(Vertex), &v[0].u);
-    
-    // And draw
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-    
-    // Clean up
-    glDisableClientState(GL_VERTEX_ARRAY);
-    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-    
-    glDisable(GL_TEXTURE_2D);
+    [self.sprite draw];
 }
 
 @end
