@@ -14,6 +14,7 @@
 @property GLKTextureInfo *texture;
 @property GLKVector2 position;
 @property GLKVector2 size;
+@property float rotation;
 
 + (id)spriteWithTexture:(GLKTextureInfo*)texture;
 

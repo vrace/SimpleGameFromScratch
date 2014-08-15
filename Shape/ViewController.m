@@ -129,8 +129,13 @@ int ScreenHeight = 480;
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect
 {
+    // Clear screen
     glClearColor(0.4f, 0.6f, 0.9f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    
+    // Reset Model View Matrix
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
     
     [self.sprite draw];
 }

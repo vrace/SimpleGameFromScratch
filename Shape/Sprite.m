@@ -69,6 +69,14 @@ typedef struct tagVertex
         { hw,       hh,         1.0f,   0.0f },     // top right of quad
     };
     
+    // Save the Model View Matrix
+    glMatrixMode(GL_MODELVIEW);
+    glPushMatrix();
+    
+    // Doing transform
+    glTranslatef(self.position.x, self.position.y, 0);
+    glRotatef(self.rotation, 0, 0, 1);
+    
     // Enable texture and bind
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, self.texture.name);
@@ -89,6 +97,9 @@ typedef struct tagVertex
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
     
     glDisable(GL_TEXTURE_2D);
+    
+    // Restore matrix
+    glPopMatrix();
 }
 
 @end
